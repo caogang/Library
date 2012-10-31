@@ -1,0 +1,16 @@
+E:\VS程序\Library\Library\bin\Debug\Library.exe.config
+E:\VS程序\Library\Library\bin\Debug\Library.exe
+E:\VS程序\Library\Library\bin\Debug\Library.pdb
+E:\VS程序\Library\Library\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\VS程序\Library\Library\obj\x86\Debug\Library.Properties.Resources.resources
+E:\VS程序\Library\Library\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\VS程序\Library\Library\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\VS程序\Library\Library\obj\x86\Debug\Library.exe
+E:\VS程序\Library\Library\obj\x86\Debug\Library.pdb
+E:\VS程序\Library\Library\obj\x86\Debug\Library.Login.resources
+E:\VS程序\Library\Library\obj\x86\Debug\Library.Main.resources
+E:\VS程序\Library\Library\obj\x86\Debug\Library.UserInfo.resources
+E:\VS程序\Library\Library\obj\x86\Debug\Library.CheckUserInfo.resources
+E:\VS程序\Library\Library\obj\x86\Debug\Library.AddUserInfo.resources
+E:\VS程序\Library\Library\obj\x86\Debug\Library.DeleteUserInfo.resources
+E:\VS程序\Library\Library\obj\x86\Debug\Library.CheckBookHadBorrow_Info.resources
