@@ -96,7 +96,7 @@ namespace Library
             }
         }
 
-        public DataSet selectBook()
+        public DataSet selectBooks()
         {
             string sql = @"SELECT [book_id]
       ,[title]
@@ -160,6 +160,64 @@ namespace Library
                     ds.Tables[0].Rows[i]["应归还日期"] = returnDates[i];
                 }
             }
+            return ds;
+        }
+
+        public Book getBook(Book b)
+        {
+            string sql = @"SELECT [book_id]
+      ,[title]
+      ,[content]
+      ,[num]
+      ,[date]
+      ,[publisher]
+      ,[publishing_home]
+  FROM [Library].[dbo].[Book] where [book_id]='" + b.Book_id + "'";
+            sqlcom = new SqlCommand(sql, conn);
+            sda = new SqlDataAdapter(sqlcom);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            b.Book_id = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+            b.Title = ds.Tables[0].Rows[0][1].ToString();
+            b.Content = ds.Tables[0].Rows[0][2].ToString();
+            b.Num = Convert.ToInt16(ds.Tables[0].Rows[0][3]);
+            b.Date = (DateTime)ds.Tables[0].Rows[0][4];
+            b.Publisher = ds.Tables[0].Rows[0][5].ToString();
+            b.Publishing_home = ds.Tables[0].Rows[0][6].ToString();
+            return b;
+        }
+
+        public DataSet selectBook()
+        {
+            string sql = @"SELECT [book_id]
+      ,[title]
+      ,[content]
+      ,[num]
+      ,[date]
+      ,[publisher]
+      ,[publishing_home]
+  FROM [Library].[dbo].[Book]";
+            sqlcom = new SqlCommand(sql, conn);
+            sda = new SqlDataAdapter(sqlcom);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            return ds;
+        }
+
+        public DataSet getBookToDataset(Book b)
+        {
+            string sql = @"SELECT [book_id]
+      ,[title]
+      ,[content]
+      ,[num]
+      ,[date]
+      ,[publisher]
+      ,[publishing_home]
+  FROM [Library].[dbo].[Book] where [title]='" + b.Title+ "'";
+            sqlcom = new SqlCommand(sql, conn);
+            sda = new SqlDataAdapter(sqlcom);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
             return ds;
         }
 

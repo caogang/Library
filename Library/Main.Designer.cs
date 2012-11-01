@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.用户管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查询用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.图书管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询图书ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.添加图书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,10 +46,6 @@
             this.Info = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.用户管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.添加用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.查询用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,38 @@
             this.menuStrip1.Size = new System.Drawing.Size(784, 32);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 用户管理ToolStripMenuItem
+            // 
+            this.用户管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.查询用户ToolStripMenuItem,
+            this.添加用户ToolStripMenuItem,
+            this.删除用户ToolStripMenuItem});
+            this.用户管理ToolStripMenuItem.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.用户管理ToolStripMenuItem.Name = "用户管理ToolStripMenuItem";
+            this.用户管理ToolStripMenuItem.Size = new System.Drawing.Size(118, 28);
+            this.用户管理ToolStripMenuItem.Text = "用户管理";
+            // 
+            // 查询用户ToolStripMenuItem
+            // 
+            this.查询用户ToolStripMenuItem.Name = "查询用户ToolStripMenuItem";
+            this.查询用户ToolStripMenuItem.Size = new System.Drawing.Size(176, 28);
+            this.查询用户ToolStripMenuItem.Text = "查询用户";
+            this.查询用户ToolStripMenuItem.Click += new System.EventHandler(this.CheckUserInfo_ToolStripMenuItem1_Click);
+            // 
+            // 添加用户ToolStripMenuItem
+            // 
+            this.添加用户ToolStripMenuItem.Name = "添加用户ToolStripMenuItem";
+            this.添加用户ToolStripMenuItem.Size = new System.Drawing.Size(176, 28);
+            this.添加用户ToolStripMenuItem.Text = "添加用户";
+            this.添加用户ToolStripMenuItem.Click += new System.EventHandler(this.AddUserInfo_ToolStripMenuItem_Click);
+            // 
+            // 删除用户ToolStripMenuItem
+            // 
+            this.删除用户ToolStripMenuItem.Name = "删除用户ToolStripMenuItem";
+            this.删除用户ToolStripMenuItem.Size = new System.Drawing.Size(176, 28);
+            this.删除用户ToolStripMenuItem.Text = "删除用户";
+            this.删除用户ToolStripMenuItem.Click += new System.EventHandler(this.DeleteUser_ToolStripMenuItem);
             // 
             // 图书管理ToolStripMenuItem
             // 
@@ -80,6 +112,7 @@
             this.查询图书ToolStripMenuItem2.Name = "查询图书ToolStripMenuItem2";
             this.查询图书ToolStripMenuItem2.Size = new System.Drawing.Size(224, 28);
             this.查询图书ToolStripMenuItem2.Text = "查询图书";
+            this.查询图书ToolStripMenuItem2.Click += new System.EventHandler(this.CheckBookInfo_ToolStripMenuItem1_Click);
             // 
             // 添加图书ToolStripMenuItem
             // 
@@ -128,6 +161,7 @@
             this.查询图书ToolStripMenuItem1.Name = "查询图书ToolStripMenuItem1";
             this.查询图书ToolStripMenuItem1.Size = new System.Drawing.Size(176, 28);
             this.查询图书ToolStripMenuItem1.Text = "查询图书";
+            this.查询图书ToolStripMenuItem1.Click += new System.EventHandler(this.CheckBookInfo_ToolStripMenuItem1_Click);
             // 
             // 用户信息ToolStripMenuItem
             // 
@@ -167,38 +201,6 @@
             this.label1.Size = new System.Drawing.Size(70, 24);
             this.label1.TabIndex = 3;
             this.label1.Text = "用户:";
-            // 
-            // 用户管理ToolStripMenuItem
-            // 
-            this.用户管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.查询用户ToolStripMenuItem,
-            this.添加用户ToolStripMenuItem,
-            this.删除用户ToolStripMenuItem});
-            this.用户管理ToolStripMenuItem.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.用户管理ToolStripMenuItem.Name = "用户管理ToolStripMenuItem";
-            this.用户管理ToolStripMenuItem.Size = new System.Drawing.Size(118, 28);
-            this.用户管理ToolStripMenuItem.Text = "用户管理";
-            // 
-            // 添加用户ToolStripMenuItem
-            // 
-            this.添加用户ToolStripMenuItem.Name = "添加用户ToolStripMenuItem";
-            this.添加用户ToolStripMenuItem.Size = new System.Drawing.Size(176, 28);
-            this.添加用户ToolStripMenuItem.Text = "添加用户";
-            this.添加用户ToolStripMenuItem.Click += new System.EventHandler(this.AddUserInfo_ToolStripMenuItem_Click);
-            // 
-            // 查询用户ToolStripMenuItem
-            // 
-            this.查询用户ToolStripMenuItem.Name = "查询用户ToolStripMenuItem";
-            this.查询用户ToolStripMenuItem.Size = new System.Drawing.Size(176, 28);
-            this.查询用户ToolStripMenuItem.Text = "查询用户";
-            this.查询用户ToolStripMenuItem.Click += new System.EventHandler(this.CheckUserInfo_ToolStripMenuItem1_Click);
-            // 
-            // 删除用户ToolStripMenuItem
-            // 
-            this.删除用户ToolStripMenuItem.Name = "删除用户ToolStripMenuItem";
-            this.删除用户ToolStripMenuItem.Size = new System.Drawing.Size(176, 28);
-            this.删除用户ToolStripMenuItem.Text = "删除用户";
-            this.删除用户ToolStripMenuItem.Click += new System.EventHandler(this.DeleteUser_ToolStripMenuItem);
             // 
             // Main
             // 

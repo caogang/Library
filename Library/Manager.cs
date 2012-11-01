@@ -94,5 +94,23 @@ namespace Library
             }
         }
 
+        public Book getBook(Book book)
+        {
+            return bookDAO.getBook(book);
+        }
+
+        public DataSet selectBook(String title)
+        {
+            book.Title = title;
+            if (book.Title != "")
+            {
+                return bookDAO.getBookToDataset(book);
+            }
+            else
+            {
+                return bookDAO.selectBooks();
+            }
+        }
+
     }
 }

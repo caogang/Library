@@ -28,19 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
+            this.CheckUser_textbox1 = new System.Windows.Forms.TextBox();
+            this.Check_Submit = new System.Windows.Forms.Button();
+            this.Check_dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.Check_dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(64, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(262, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "请输入要查询的用户名:";
+            // 
+            // CheckUser_textbox1
+            // 
+            this.CheckUser_textbox1.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CheckUser_textbox1.Location = new System.Drawing.Point(332, 80);
+            this.CheckUser_textbox1.Name = "CheckUser_textbox1";
+            this.CheckUser_textbox1.Size = new System.Drawing.Size(189, 35);
+            this.CheckUser_textbox1.TabIndex = 1;
+            // 
+            // Check_Submit
+            // 
+            this.Check_Submit.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Check_Submit.Location = new System.Drawing.Point(537, 78);
+            this.Check_Submit.Name = "Check_Submit";
+            this.Check_Submit.Size = new System.Drawing.Size(102, 37);
+            this.Check_Submit.TabIndex = 2;
+            this.Check_Submit.Text = "查询";
+            this.Check_Submit.UseVisualStyleBackColor = true;
+            this.Check_Submit.Click += new System.EventHandler(this.Check_Submit_Click);
+            // 
+            // Check_dataGridView1
+            // 
+            this.Check_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Check_dataGridView1.Location = new System.Drawing.Point(87, 161);
+            this.Check_dataGridView1.Name = "Check_dataGridView1";
+            this.Check_dataGridView1.RowTemplate.Height = 23;
+            this.Check_dataGridView1.Size = new System.Drawing.Size(552, 185);
+            this.Check_dataGridView1.TabIndex = 3;
             // 
             // CheckUserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 392);
+            this.Controls.Add(this.Check_dataGridView1);
+            this.Controls.Add(this.Check_Submit);
+            this.Controls.Add(this.CheckUser_textbox1);
+            this.Controls.Add(this.label1);
             this.Name = "CheckUserInfo";
             this.Text = "CheckUserInfo";
+            ((System.ComponentModel.ISupportInitialize)(this.Check_dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox CheckUser_textbox1;
+        private System.Windows.Forms.Button Check_Submit;
+        private System.Windows.Forms.DataGridView Check_dataGridView1;
     }
 }

@@ -60,6 +60,12 @@
     <Compile Include="CheckBookHadBorrow_Info.Designer.cs">
       <DependentUpon>CheckBookHadBorrow_Info.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckBookInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckBookInfo.Designer.cs">
+      <DependentUpon>CheckBookInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="CheckUserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CheckBookHadBorrow_Info.resx">
       <DependentUpon>CheckBookHadBorrow_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckBookInfo.resx">
+      <DependentUpon>CheckBookInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckUserInfo.resx">
       <DependentUpon>CheckUserInfo.cs</DependentUpon>

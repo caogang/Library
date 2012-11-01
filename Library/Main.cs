@@ -81,5 +81,15 @@ namespace Library
             Info.Controls.Add(checkBookHadBorrow_Info);
             checkBookHadBorrow_Info.Show();
         }
+
+        private void CheckBookInfo_ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CheckBookInfo checkBookInfo = new CheckBookInfo(userName);
+            checkBookInfo.TopLevel = false;
+            checkBookInfo.FormBorderStyle = FormBorderStyle.None;
+            Info.Controls.Clear();
+            Info.Controls.Add(checkBookInfo);
+            checkBookInfo.Show();
+        }
     }
 }
