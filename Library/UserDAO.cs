@@ -125,7 +125,7 @@ namespace Library
       ,[sex]
       ,[hadBorrow]
       ,[countBorrow]
-  FROM [Library].[dbo].[User] where [userName]='" + u.UserName + "'";
+  FROM [Library].[dbo].[User] where [userName] Like '" + u.UserName + "%'";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
             DataSet ds = new DataSet();
@@ -175,6 +175,10 @@ namespace Library
                 conn.Open();
                 string sql = @"DELETE FROM [Library].[dbo].[User]
       WHERE user_id = "+ u.User_id +" OR userName = '"+ u.UserName +"'";
+                sqlcom = new SqlCommand(sql, conn);
+                sqlcom.ExecuteScalar();
+                sql = @"DELETE FROM [Library].[dbo].[Link]
+      WHERE user_id = " + u.User_id ;
                 sqlcom = new SqlCommand(sql, conn);
                 sqlcom.ExecuteScalar();
                 return 1;

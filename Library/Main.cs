@@ -91,5 +91,26 @@ namespace Library
             Info.Controls.Add(checkBookInfo);
             checkBookInfo.Show();
         }
+
+        private void AddBookInfo_ToolStripMenuItem(object sender, EventArgs e)
+        {
+            AddBookInfo addBookInfo = new AddBookInfo(user);
+            addBookInfo.TopLevel = false;
+            addBookInfo.FormBorderStyle = FormBorderStyle.None;
+            Info.Controls.Clear();
+            Info.Controls.Add(addBookInfo);
+            addBookInfo.Show();
+        }
+
+        private void DeleteBookInfo_ToolStripMenuItem(object sender, EventArgs e)
+        {
+            DeleteBookInfo deleteBookInfo = new DeleteBookInfo();
+            deleteBookInfo.TopLevel = false;
+            deleteBookInfo.FormBorderStyle = FormBorderStyle.None;
+            Info.Controls.Clear();
+            Info.Controls.Add(deleteBookInfo);
+            deleteBookInfo.Show();
+        }
+
     }
 }

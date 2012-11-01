@@ -54,7 +54,11 @@ namespace Library
             {
                 conn.Open();
                 string sql = @"DELETE FROM [Library].[dbo].[Book]
-      WHERE book_id = " + b.Book_id;
+      WHERE book_id = " + b.Book_id + " OR title = '" + b.Title +"'";
+                sqlcom = new SqlCommand(sql, conn);
+                sqlcom.ExecuteScalar();
+                sql = @"DELETE FROM [Library].[dbo].[Link]
+      WHERE book_id = " + b.Book_id ;
                 sqlcom = new SqlCommand(sql, conn);
                 sqlcom.ExecuteScalar();
                 return 1;
@@ -213,12 +217,39 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
-  FROM [Library].[dbo].[Book] where [title]='" + b.Title+ "'";
+  FROM [Library].[dbo].[Book] where [title] Like '" + b.Title+ "%'";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
             DataSet ds = new DataSet();
             sda.Fill(ds);
             return ds;
+        }
+
+        public bool checkBookExist(Book b)
+        {
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM [Library].[dbo].[Book] where [title]='" + b.Title + "'";
+                sqlcom = new SqlCommand(sql, conn);
+                object tp = sqlcom.ExecuteScalar();
+                if (tp == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
     }

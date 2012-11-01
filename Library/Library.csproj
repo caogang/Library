@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBookInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBookInfo.Designer.cs">
+      <DependentUpon>AddBookInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,12 @@
     </Compile>
     <Compile Include="CheckUserInfo.Designer.cs">
       <DependentUpon>CheckUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteBookInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteBookInfo.Designer.cs">
+      <DependentUpon>DeleteBookInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="DeleteUserInfo.cs">
       <SubType>Form</SubType>
@@ -101,6 +113,9 @@
     <Compile Include="UserInfo.Designer.cs">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddBookInfo.resx">
+      <DependentUpon>AddBookInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUserInfo.resx">
       <DependentUpon>AddUserInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CheckUserInfo.resx">
       <DependentUpon>CheckUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteBookInfo.resx">
+      <DependentUpon>DeleteBookInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteUserInfo.resx">
       <DependentUpon>DeleteUserInfo.cs</DependentUpon>

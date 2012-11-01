@@ -112,5 +112,20 @@ namespace Library
             }
         }
 
+        public int addBook(Book book)
+        {
+            return bookDAO.insertBook(book);
+        }
+
+        public int deleteBook(Book book)
+        {
+            return bookDAO.deleteBook(book);
+        }
+
+        public bool CheckBookExists(Book book)
+        {
+            return bookDAO.checkBookExist(book);
+        }
+
     }
 }

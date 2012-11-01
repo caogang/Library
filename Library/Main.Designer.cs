@@ -119,12 +119,14 @@
             this.添加图书ToolStripMenuItem.Name = "添加图书ToolStripMenuItem";
             this.添加图书ToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.添加图书ToolStripMenuItem.Text = "添加图书";
+            this.添加图书ToolStripMenuItem.Click += new System.EventHandler(this.AddBookInfo_ToolStripMenuItem);
             // 
             // 删除图书ToolStripMenuItem
             // 
             this.删除图书ToolStripMenuItem.Name = "删除图书ToolStripMenuItem";
             this.删除图书ToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.删除图书ToolStripMenuItem.Text = "删除图书";
+            this.删除图书ToolStripMenuItem.Click += new System.EventHandler(this.DeleteBookInfo_ToolStripMenuItem);
             // 
             // 借阅图书ToolStripMenuItem
             // 
