@@ -52,6 +52,7 @@
             this.Reset.TabIndex = 26;
             this.Reset.Text = "退出编辑";
             this.Reset.UseVisualStyleBackColor = true;
+            this.Reset.Click += new System.EventHandler(this.Reset_Click);
             // 
             // Submit
             // 
@@ -62,6 +63,7 @@
             this.Submit.TabIndex = 25;
             this.Submit.Text = "更新";
             this.Submit.UseVisualStyleBackColor = true;
+            this.Submit.Click += new System.EventHandler(this.Submit_Click);
             // 
             // Age
             // 

@@ -20,3 +20,4 @@ E:\VS程序\Library\Library\obj\x86\Debug\Library.DeleteBookInfo.resources
 E:\VS程序\Library\Library\obj\x86\Debug\Library.BorrowBookInfo.resources
 E:\VS程序\Library\Library\obj\x86\Debug\Library.ReturnBookInfo.resources
 E:\VS程序\Library\Library\obj\x86\Debug\Library.EditBook.resources
+E:\VS程序\Library\Library\obj\x86\Debug\Library.EditUser.resources
