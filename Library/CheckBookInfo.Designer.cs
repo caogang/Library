@@ -40,7 +40,9 @@
             // 
             this.Check_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Check_dataGridView1.Location = new System.Drawing.Point(120, 127);
+            this.Check_dataGridView1.MultiSelect = false;
             this.Check_dataGridView1.Name = "Check_dataGridView1";
+            this.Check_dataGridView1.ReadOnly = true;
             this.Check_dataGridView1.RowTemplate.Height = 23;
             this.Check_dataGridView1.Size = new System.Drawing.Size(552, 185);
             this.Check_dataGridView1.TabIndex = 7;

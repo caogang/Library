@@ -96,6 +96,18 @@
     <Compile Include="DeleteUserInfo.Designer.cs">
       <DependentUpon>DeleteUserInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBook.Designer.cs">
+      <DependentUpon>EditBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUser.Designer.cs">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +160,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteUserInfo.resx">
       <DependentUpon>DeleteUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBook.resx">
+      <DependentUpon>EditBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUser.resx">
+      <DependentUpon>EditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

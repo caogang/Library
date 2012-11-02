@@ -167,5 +167,10 @@ namespace Library
             return bookDAO.CheckBookHadBorrow(user,book);
         }
 
+        public int updateBook(Book book)
+        {
+            return bookDAO.updateBook(book);
+        }
+
     }
 }

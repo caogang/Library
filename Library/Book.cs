@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Library
 {
-    class Book
+    public class Book
     {
         int book_id;
 

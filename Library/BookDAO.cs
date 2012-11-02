@@ -327,15 +327,11 @@ namespace Library
             {
                 book_ids[i] = Convert.ToInt16(ds.Tables[0].Rows[i][0]);
             }
-            for (int i = 0; i < u.HadBorrow; i++)
+            for (int j = 0; j < u.HadBorrow; j++)
             {
-                if (book_ids[i] == b.Book_id)
+                if (book_ids[j] == b.Book_id)
                 {
                     return true;
-                }
-                else
-                {
-                    return false;
                 }
             }
             return false;
