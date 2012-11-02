@@ -293,5 +293,53 @@ namespace Library
             }
         }
 
+        public int ReturnBooks(User u, Book b)
+        {
+            try
+            {
+                conn.Open();
+                string sql = @"DELETE FROM [Library].[dbo].[Link]
+            WHERE [user_id] = " + u.User_id +" AND [book_id] = " + b.Book_id;
+                sqlcom = new SqlCommand(sql, conn);
+                object tp = sqlcom.ExecuteScalar();
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool CheckBookHadBorrow(User u, Book b)
+        {
+            string sql = @"SELECT [book_id]
+  FROM [Library].[dbo].[Link] where [user_id]=" + u.User_id;
+            sqlcom = new SqlCommand(sql, conn);
+            sda = new SqlDataAdapter(sqlcom);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            int[] book_ids = new int[u.HadBorrow];
+            for (int i = 0; i < u.HadBorrow; i++)
+            {
+                book_ids[i] = Convert.ToInt16(ds.Tables[0].Rows[i][0]);
+            }
+            for (int i = 0; i < u.HadBorrow; i++)
+            {
+                if (book_ids[i] == b.Book_id)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
     }
 }

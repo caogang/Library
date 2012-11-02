@@ -21,5 +21,10 @@ namespace Library
         {
             Check_dataGridView1.DataSource = manager.selectBook(CheckBook_textbox1.Text).Tables[0].DefaultView;
         }
+
+        private void Edit_Submit_Click(object sender, EventArgs e)
+        {
+            //Check_dataGridView1.SelectedRows;
+        }
     }
 }

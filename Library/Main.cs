@@ -122,5 +122,15 @@ namespace Library
             borrowBookInfo.Show();
         }
 
+        private void ReturnBook_ToolStripMenuItem(object sender, EventArgs e)
+        {
+            ReturnBookInfo returnBookInfo = new ReturnBookInfo(user);
+            returnBookInfo.TopLevel = false;
+            returnBookInfo.FormBorderStyle = FormBorderStyle.None;
+            Info.Controls.Clear();
+            Info.Controls.Add(returnBookInfo);
+            returnBookInfo.Show();
+        }
+
     }
 }

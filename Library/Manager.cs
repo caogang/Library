@@ -89,7 +89,7 @@ namespace Library
             }
             catch
             {
-                DataTable dt =new DataTable();
+                DataTable dt = new DataTable();
                 return dt;
             }
         }
@@ -129,8 +129,42 @@ namespace Library
 
         public int borrowBook(User user, Book book)
         {
-            book = bookDAO.getBook(book);
-            return bookDAO.BorrowBooks(user, book);
+            try
+            {
+                int tp = bookDAO.BorrowBooks(user, book);
+                user.HadBorrow++;
+                user.CountBorrow++;
+                userDAO.updateUser(user);
+                book.Num--;
+                bookDAO.updateBook(book);
+                return tp;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public int returnBook(User user, Book book)
+        {
+            try
+            {
+                int tp = bookDAO.ReturnBooks(user, book);
+                user.HadBorrow--;
+                userDAO.updateUser(user);
+                book.Num++;
+                bookDAO.updateBook(book);
+                return tp;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public bool checkBookHadBorrow(User user, Book book)
+        {
+            return bookDAO.CheckBookHadBorrow(user,book);
         }
 
     }
