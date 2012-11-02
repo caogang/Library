@@ -53,6 +53,7 @@ namespace Library
             try
             {
                 conn.Open();
+                b = this.getBook(b);
                 string sql = @"DELETE FROM [Library].[dbo].[Book]
       WHERE book_id = " + b.Book_id + " OR title = '" + b.Title +"'";
                 sqlcom = new SqlCommand(sql, conn);
@@ -176,7 +177,7 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
-  FROM [Library].[dbo].[Book] where [book_id]='" + b.Book_id + "'";
+  FROM [Library].[dbo].[Book] where [book_id]='" + b.Book_id + "' OR [title]='" + b.Title + "'";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
             DataSet ds = new DataSet();
@@ -240,6 +241,46 @@ namespace Library
                 else
                 {
                     return true;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public int BorrowBooks(User u, Book b)
+        {
+            try
+            {
+                conn.Open();
+                DateTime date = new DateTime();
+                date = System.DateTime.Now;
+                DateTime returnDate = new DateTime();
+                returnDate = date.AddMonths(2);
+                string sql = @"INSERT INTO [Library].[dbo].[Link]
+           ([user_id]
+           ,[book_id]
+           ,[borrowDate]
+           ,[returnDate])
+     VALUES
+           ('" + u.User_id + @"'
+           ,'" + b.Book_id + @"'
+           ,'" + date + @"'
+           ,'" + returnDate + "')";
+                sqlcom = new SqlCommand(sql, conn);
+                object tp = sqlcom.ExecuteScalar();
+                if (tp == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 1;
                 }
             }
             catch

@@ -127,5 +127,11 @@ namespace Library
             return bookDAO.checkBookExist(book);
         }
 
+        public int borrowBook(User user, Book book)
+        {
+            book = bookDAO.getBook(book);
+            return bookDAO.BorrowBooks(user, book);
+        }
+
     }
 }

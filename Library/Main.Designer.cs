@@ -133,6 +133,7 @@
             this.借阅图书ToolStripMenuItem.Name = "借阅图书ToolStripMenuItem";
             this.借阅图书ToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.借阅图书ToolStripMenuItem.Text = "借阅图书";
+            this.借阅图书ToolStripMenuItem.Click += new System.EventHandler(this.BorrowBookInfo_ToolStripMenuItem);
             // 
             // 查询已借图书ToolStripMenuItem
             // 

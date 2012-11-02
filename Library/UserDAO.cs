@@ -173,6 +173,7 @@ namespace Library
             try
             {
                 conn.Open();
+                u = this.getUser(u);
                 string sql = @"DELETE FROM [Library].[dbo].[User]
       WHERE user_id = "+ u.User_id +" OR userName = '"+ u.UserName +"'";
                 sqlcom = new SqlCommand(sql, conn);

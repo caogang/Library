@@ -112,5 +112,15 @@ namespace Library
             deleteBookInfo.Show();
         }
 
+        private void BorrowBookInfo_ToolStripMenuItem(object sender, EventArgs e)
+        {
+            BorrowBookInfo borrowBookInfo = new BorrowBookInfo(user);
+            borrowBookInfo.TopLevel = false;
+            borrowBookInfo.FormBorderStyle = FormBorderStyle.None;
+            Info.Controls.Clear();
+            Info.Controls.Add(borrowBookInfo);
+            borrowBookInfo.Show();
+        }
+
     }
 }

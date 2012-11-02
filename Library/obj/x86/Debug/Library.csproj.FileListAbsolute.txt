@@ -17,3 +17,4 @@ E:\VS程序\Library\Library\obj\x86\Debug\Library.CheckBookHadBorrow_Info.resour
 E:\VS程序\Library\Library\obj\x86\Debug\Library.CheckBookInfo.resources
 E:\VS程序\Library\Library\obj\x86\Debug\Library.AddBookInfo.resources
 E:\VS程序\Library\Library\obj\x86\Debug\Library.DeleteBookInfo.resources
+E:\VS程序\Library\Library\obj\x86\Debug\Library.BorrowBookInfo.resources

@@ -60,6 +60,12 @@
     </Compile>
     <Compile Include="Book.cs" />
     <Compile Include="BookDAO.cs" />
+    <Compile Include="BorrowBookInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowBookInfo.Designer.cs">
+      <DependentUpon>BorrowBookInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="CheckBookHadBorrow_Info.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddUserInfo.resx">
       <DependentUpon>AddUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BorrowBookInfo.resx">
+      <DependentUpon>BorrowBookInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckBookHadBorrow_Info.resx">
       <DependentUpon>CheckBookHadBorrow_Info.cs</DependentUpon>
