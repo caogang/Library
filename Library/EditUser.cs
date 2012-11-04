@@ -42,12 +42,6 @@ namespace Library
         private void Submit_Click(object sender, EventArgs e)
         {
             user.UserName = UserName.Text;
-            if (manager.CheckUserNameExists(user.UserName))
-            {
-                MessageBox.Show("用户已存在!请重新输入!");
-                reset();
-                return;
-            }
             user.PassWord = PassWord.Text;
             if (radioButton1.Checked)
             {
@@ -76,8 +70,9 @@ namespace Library
             }
             try
             {
-                manager.addUser(user);
-                MessageBox.Show("注册用户成功!");
+                manager.updateUser(user);
+                MessageBox.Show("更新用户数据成功!");
+                reset();
             }
             catch
             {

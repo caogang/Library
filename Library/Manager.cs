@@ -172,5 +172,10 @@ namespace Library
             return bookDAO.updateBook(book);
         }
 
+        public int updateUser(User user)
+        {
+            return userDAO.updateUser(user);
+        }
+
     }
 }
