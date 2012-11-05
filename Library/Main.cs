@@ -54,7 +54,7 @@ namespace Library
 
         private void AddUserInfo_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddUserInfo add_userinfo = new AddUserInfo();
+            AddUserInfo add_userinfo = new AddUserInfo(user);
             add_userinfo.TopLevel = false;
             add_userinfo.FormBorderStyle = FormBorderStyle.None;
             Info.Controls.Clear();

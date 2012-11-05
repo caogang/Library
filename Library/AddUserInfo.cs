@@ -13,9 +13,16 @@ namespace Library
     {
         User user = new User();
         Manager manager = new Manager();
-        public AddUserInfo()
+        public AddUserInfo(User u)
         {
+            user = u;
             InitializeComponent();
+            if (user.IsAdmin != "是")
+            {
+                label5.Hide();
+                checkBox1.Hide();
+                Submit.Site.ToString();
+            }
         }
 
         private void Submit_Click(object sender, EventArgs e)

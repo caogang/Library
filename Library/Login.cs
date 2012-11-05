@@ -50,7 +50,7 @@ namespace Library
 
         private void Register(object sender, EventArgs e)
         {
-            AddUserInfo addUserInfo = new AddUserInfo();
+            AddUserInfo addUserInfo = new AddUserInfo(new User());
             addUserInfo.Show();
         }
 
