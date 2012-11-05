@@ -47,5 +47,12 @@ namespace Library
             textBox1.Text = "";
             textBox2.Text = "";
         }
+
+        private void Register(object sender, EventArgs e)
+        {
+            AddUserInfo addUserInfo = new AddUserInfo();
+            addUserInfo.Show();
+        }
+
     }
 }
