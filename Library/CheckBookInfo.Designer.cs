@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Edit_Submit = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Check_dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,11 +101,23 @@
             this.dataGridViewImageColumn1.Image = global::Library.Properties.Resources.delete1;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
+            // Delete
+            // 
+            this.Delete.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Delete.Location = new System.Drawing.Point(583, 331);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(89, 36);
+            this.Delete.TabIndex = 9;
+            this.Delete.Text = "删除";
+            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            // 
             // CheckBookInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 392);
+            this.Controls.Add(this.Delete);
             this.Controls.Add(this.Edit_Submit);
             this.Controls.Add(this.Check_dataGridView1);
             this.Controls.Add(this.CheckBook_Submit);
@@ -126,5 +139,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Edit_Submit;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.Button Delete;
     }
 }
