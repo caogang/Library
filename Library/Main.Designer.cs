@@ -39,6 +39,7 @@
             this.删除图书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.借阅图书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询已借图书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.归还图书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询图书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询用户ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.查询图书ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,7 @@
             this.Info = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.归还图书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,6 +145,13 @@
             this.查询已借图书ToolStripMenuItem.Text = "查询已借图书";
             this.查询已借图书ToolStripMenuItem.Click += new System.EventHandler(this.CheckBookHadBorrow);
             // 
+            // 归还图书ToolStripMenuItem
+            // 
+            this.归还图书ToolStripMenuItem.Name = "归还图书ToolStripMenuItem";
+            this.归还图书ToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.归还图书ToolStripMenuItem.Text = "归还图书";
+            this.归还图书ToolStripMenuItem.Click += new System.EventHandler(this.ReturnBook_ToolStripMenuItem);
+            // 
             // 查询图书ToolStripMenuItem
             // 
             this.查询图书ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -207,18 +215,25 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "用户:";
             // 
-            // 归还图书ToolStripMenuItem
+            // linkLabel1
             // 
-            this.归还图书ToolStripMenuItem.Name = "归还图书ToolStripMenuItem";
-            this.归还图书ToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
-            this.归还图书ToolStripMenuItem.Text = "归还图书";
-            this.归还图书ToolStripMenuItem.Click += new System.EventHandler(this.ReturnBook_ToolStripMenuItem);
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.SystemColors.Window;
+            this.linkLabel1.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linkLabel1.Location = new System.Drawing.Point(668, 9);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(49, 20);
+            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "注销";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 462);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Info);
@@ -256,6 +271,7 @@
         private System.Windows.Forms.ToolStripMenuItem 添加用户ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除用户ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 归还图书ToolStripMenuItem;
+        private System.Windows.Forms.LinkLabel linkLabel1;
 
     }
 }

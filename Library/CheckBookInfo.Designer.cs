@@ -33,19 +33,26 @@
             this.CheckBook_textbox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Edit_Submit = new System.Windows.Forms.Button();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Check_dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // Check_dataGridView1
             // 
+            this.Check_dataGridView1.AllowUserToAddRows = false;
+            this.Check_dataGridView1.AllowUserToDeleteRows = false;
             this.Check_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Check_dataGridView1.Location = new System.Drawing.Point(120, 127);
             this.Check_dataGridView1.MultiSelect = false;
             this.Check_dataGridView1.Name = "Check_dataGridView1";
             this.Check_dataGridView1.ReadOnly = true;
-            this.Check_dataGridView1.RowTemplate.Height = 23;
+            this.Check_dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.Check_dataGridView1.RowTemplate.Height = 50;
+            this.Check_dataGridView1.RowTemplate.ReadOnly = true;
+            this.Check_dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Check_dataGridView1.Size = new System.Drawing.Size(552, 185);
             this.Check_dataGridView1.TabIndex = 7;
+            this.Check_dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Check_dataGridView1_CellContentClick);
             // 
             // CheckBook_Submit
             // 
@@ -87,6 +94,12 @@
             this.Edit_Submit.UseVisualStyleBackColor = true;
             this.Edit_Submit.Click += new System.EventHandler(this.Edit_Submit_Click);
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Column1";
+            this.dataGridViewImageColumn1.Image = global::Library.Properties.Resources.delete1;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
             // CheckBookInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -112,5 +125,6 @@
         private System.Windows.Forms.TextBox CheckBook_textbox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Edit_Submit;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }

@@ -54,5 +54,10 @@ namespace Library
             addUserInfo.Show();
         }
 
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

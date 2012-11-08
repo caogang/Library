@@ -132,5 +132,13 @@ namespace Library
             returnBookInfo.Show();
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("已经成功注销!");
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
     }
 }
