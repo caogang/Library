@@ -28,6 +28,12 @@ namespace Library
         private void Submit_Click(object sender, EventArgs e)
         {
             user.UserName = UserName.Text;
+            if (user.UserName == "")
+            {
+                MessageBox.Show("用户名不允许为空!");
+                resetPass();
+                return;
+            }
             if (manager.CheckUserNameExists(user.UserName))
             {
                 MessageBox.Show("用户已存在!请重新输入!");
@@ -35,13 +41,27 @@ namespace Library
                 return;
             }
             user.PassWord = PassWord.Text;
+            if (user.PassWord == "")
+            {
+                MessageBox.Show("密码不允许为空!");
+                resetPass();
+                return;
+            }
             if (radioButton1.Checked)
             {
                 user.Sex = radioButton1.Text;
             }
             else
             {
-                user.Sex = radioButton2.Text;
+                if (radioButton2.Checked)
+                {
+                    user.Sex = radioButton2.Text;
+                }
+                else
+                {
+                    MessageBox.Show("未选性别!");
+                    return;
+                }
             }
             if (checkBox1.Checked)
             {
@@ -81,6 +101,11 @@ namespace Library
             radioButton1.Checked = false;
             radioButton2.Checked = false;
             checkBox1.Checked = false;
+        }
+
+        private void resetPass()
+        {
+            PassWord.ResetText();
         }
 
         private void Reset_Click(object sender, EventArgs e)

@@ -157,7 +157,7 @@
             // Submit
             // 
             this.Submit.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Submit.Location = new System.Drawing.Point(44, 268);
+            this.Submit.Location = new System.Drawing.Point(44, 226);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(90, 35);
             this.Submit.TabIndex = 12;
@@ -168,7 +168,7 @@
             // Reset
             // 
             this.Reset.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Reset.Location = new System.Drawing.Point(224, 268);
+            this.Reset.Location = new System.Drawing.Point(224, 226);
             this.Reset.Name = "Reset";
             this.Reset.Size = new System.Drawing.Size(90, 35);
             this.Reset.TabIndex = 13;
