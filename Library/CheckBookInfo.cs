@@ -86,7 +86,7 @@ namespace Library
             book.Date = (DateTime)Check_dataGridView1.Rows[row].Cells[4].Value;
             book.Publisher = Check_dataGridView1.Rows[row].Cells[5].Value.ToString();
             book.Publishing_home = Check_dataGridView1.Rows[row].Cells[6].Value.ToString();
-            EditBook editor = new EditBook(book);
+            EditBook editor = new EditBook(book,this);
             editor.Show();
         }
 
@@ -105,9 +105,15 @@ namespace Library
             {
                 manager.deleteBook(book);
                 MessageBox.Show("删除成功!");
+                refreshSelf();
             }
             else return;
             //manager.deleteBook(book);
+        }
+
+        public void refreshSelf()
+        {
+            CheckBook_Submit_Click(new object(), new EventArgs());
         }
 
     }

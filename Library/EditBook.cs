@@ -13,10 +13,12 @@ namespace Library
     {
         Book book = new Book();
         Manager manager = new Manager();
-        public EditBook(Book b)
+        CheckBookInfo c = new CheckBookInfo("");
+        public EditBook(Book b,CheckBookInfo test)
         {
             book = b;
             InitializeComponent();
+            c = test;
             Book_Title.Text = book.Title;
             Book_content.Text = book.Content;
             Book_num.Text = book.Num.ToString() ;
@@ -50,6 +52,7 @@ namespace Library
             {
                 manager.updateBook(book);
                 MessageBox.Show("更新图书数据成功!");
+                c.refreshSelf();//修改后刷新CheckBookInfo的datagridview
                 resets();
             }
             catch
