@@ -35,6 +35,8 @@
             this.Edit_Submit = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Check_dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,11 +80,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(97, 67);
+            this.label1.Location = new System.Drawing.Point(31, 67);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 24);
+            this.label1.Size = new System.Drawing.Size(178, 24);
             this.label1.TabIndex = 4;
-            this.label1.Text = "请输入要查询的图书名:";
+            this.label1.Text = "请输入要查询的";
             // 
             // Edit_Submit
             // 
@@ -112,11 +114,36 @@
             this.Delete.UseVisualStyleBackColor = true;
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "标题",
+            "剩余数量"});
+            this.comboBox1.Location = new System.Drawing.Point(210, 64);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 32);
+            this.comboBox1.TabIndex = 10;
+            this.comboBox1.Text = "标题";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(337, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(22, 24);
+            this.label2.TabIndex = 11;
+            this.label2.Text = ":";
+            // 
             // CheckBookInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 392);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.Edit_Submit);
             this.Controls.Add(this.Check_dataGridView1);
@@ -140,5 +167,7 @@
         private System.Windows.Forms.Button Edit_Submit;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.Button Delete;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

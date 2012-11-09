@@ -25,11 +25,19 @@ namespace Library
                 Check_dataGridView1.Columns.RemoveAt(Check_dataGridView1.ColumnCount - 1);
                 Check_dataGridView1.Columns.RemoveAt(Check_dataGridView1.ColumnCount - 1);
             }
+            try
+            {
+                string test = comboBox1.SelectedItem.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("请选择要查询的项目!");
+                return;
+            }
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "编辑";
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
-            Check_dataGridView1.DataSource = manager.selectBook(CheckBook_textbox1.Text).Tables[0].DefaultView;
+            Check_dataGridView1.DataSource = manager.selectBook(CheckBook_textbox1.Text,comboBox1.SelectedItem.ToString()).Tables[0].DefaultView;
             DataGridViewImageColumn image = new DataGridViewImageColumn();//添加一个自定义Image编辑列
             image.HeaderText = "编辑";
             image.Width = 50;

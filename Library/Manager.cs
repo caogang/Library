@@ -104,7 +104,28 @@ namespace Library
             book.Title = title;
             if (book.Title != "")
             {
-                return bookDAO.getBookToDataset(book);
+                return bookDAO.getBookToDatasetByTitle(book.Title);
+            }
+            else
+            {
+                return bookDAO.selectBooks();
+            }
+        }
+
+        public DataSet selectBook(String text,String item)
+        {  
+            if (text != "")
+            {
+                if (item == "标题")
+                {
+                    book.Title = text;
+                    return bookDAO.getBookToDatasetByTitle(book.Title);
+                }
+                else if (item == "剩余数量")
+                {
+                    book.Num = Convert.ToInt16(text);
+                }
+                return bookDAO.getBookToDatasetByNumber(book.Num);
             }
             else
             {

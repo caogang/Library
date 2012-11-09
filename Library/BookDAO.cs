@@ -209,7 +209,7 @@ namespace Library
             return ds;
         }
 
-        public DataSet getBookToDataset(Book b)
+        public DataSet getBookToDatasetByTitle(String title)
         {
             string sql = @"SELECT [book_id]
       ,[title]
@@ -218,7 +218,24 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
-  FROM [Library].[dbo].[Book] where [title] Like '" + b.Title+ "%'";
+  FROM [Library].[dbo].[Book] where [title] Like '" + title+ "%' ";
+            sqlcom = new SqlCommand(sql, conn);
+            sda = new SqlDataAdapter(sqlcom);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            return ds;
+        }
+
+        public DataSet getBookToDatasetByNumber(int num)
+        {
+            string sql = @"SELECT [book_id]
+      ,[title]
+      ,[content]
+      ,[num]
+      ,[date]
+      ,[publisher]
+      ,[publishing_home]
+  FROM [Library].[dbo].[Book] where [num] = " + num;
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
             DataSet ds = new DataSet();
