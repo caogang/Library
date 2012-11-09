@@ -21,7 +21,6 @@ namespace Library
             {
                 label5.Hide();
                 checkBox1.Hide();
-                Submit.Site.ToString();
             }
         }
 

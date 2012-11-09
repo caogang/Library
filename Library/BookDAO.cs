@@ -218,7 +218,7 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
-  FROM [Library].[dbo].[Book] where [title] Like '" + title+ "%' ";
+  FROM [Library].[dbo].[Book] where [title] Like '%" + title+ "%' ";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
             DataSet ds = new DataSet();
@@ -236,6 +236,57 @@ namespace Library
       ,[publisher]
       ,[publishing_home]
   FROM [Library].[dbo].[Book] where [num] = " + num;
+            sqlcom = new SqlCommand(sql, conn);
+            sda = new SqlDataAdapter(sqlcom);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            return ds;
+        }
+
+        public DataSet getBookToDatasetByPublishing_home(String text)
+        {
+            string sql = @"SELECT [book_id]
+      ,[title]
+      ,[content]
+      ,[num]
+      ,[date]
+      ,[publisher]
+      ,[publishing_home]
+  FROM [Library].[dbo].[Book] where [publishing_home] Like '%" + text + "%'";
+            sqlcom = new SqlCommand(sql, conn);
+            sda = new SqlDataAdapter(sqlcom);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            return ds;
+        }
+
+        public DataSet getBookToDatasetByPublisher(String text)
+        {
+            string sql = @"SELECT [book_id]
+      ,[title]
+      ,[content]
+      ,[num]
+      ,[date]
+      ,[publisher]
+      ,[publishing_home]
+  FROM [Library].[dbo].[Book] where [publisher] Like '%" + text + "%'";
+            sqlcom = new SqlCommand(sql, conn);
+            sda = new SqlDataAdapter(sqlcom);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            return ds;
+        }
+
+        public DataSet getBookToDatasetByDate(DateTime date)
+        {
+            string sql = @"SELECT [book_id]
+      ,[title]
+      ,[content]
+      ,[num]
+      ,[date]
+      ,[publisher]
+      ,[publishing_home]
+  FROM [Library].[dbo].[Book] where [date] between '" + date + "' and '"+date.AddDays(1)+"'";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
             DataSet ds = new DataSet();

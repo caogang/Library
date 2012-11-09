@@ -37,6 +37,7 @@
             this.Delete = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.Check_dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,12 +121,16 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "标题",
-            "剩余数量"});
+            "剩余数量",
+            "出版社",
+            "作者",
+            "出版时间"});
             this.comboBox1.Location = new System.Drawing.Point(210, 64);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 32);
             this.comboBox1.TabIndex = 10;
             this.comboBox1.Text = "标题";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -137,11 +142,21 @@
             this.label2.TabIndex = 11;
             this.label2.Text = ":";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(364, 72);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePicker1.Visible = false;
+            // 
             // CheckBookInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 392);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Delete);
@@ -169,5 +184,6 @@
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

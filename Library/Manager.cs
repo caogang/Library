@@ -124,8 +124,24 @@ namespace Library
                 else if (item == "剩余数量")
                 {
                     book.Num = Convert.ToInt16(text);
+                    return bookDAO.getBookToDatasetByNumber(book.Num);
                 }
-                return bookDAO.getBookToDatasetByNumber(book.Num);
+                else if (item == "出版社")
+                {
+                    book.Publishing_home = text;
+                    return bookDAO.getBookToDatasetByPublishing_home(book.Publishing_home);
+                }
+                else if (item == "作者")
+                {
+                    book.Publisher = text;
+                    return bookDAO.getBookToDatasetByPublisher(book.Publisher);
+                }
+                else
+                {
+                    book.Date = Convert.ToDateTime(text);
+                    return bookDAO.getBookToDatasetByDate(book.Date);
+                }
+                
             }
             else
             {

@@ -198,7 +198,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Window;
             this.label5.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(604, 5);
+            this.label5.Location = new System.Drawing.Point(551, 5);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 24);
             this.label5.TabIndex = 2;
@@ -209,7 +209,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Window;
             this.label1.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(539, 5);
+            this.label1.Location = new System.Drawing.Point(486, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 24);
             this.label1.TabIndex = 3;

@@ -37,7 +37,14 @@ namespace Library
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
-            Check_dataGridView1.DataSource = manager.selectBook(CheckBook_textbox1.Text,comboBox1.SelectedItem.ToString()).Tables[0].DefaultView;
+            if (comboBox1.SelectedItem.ToString() != "出版时间")
+            {
+                Check_dataGridView1.DataSource = manager.selectBook(CheckBook_textbox1.Text, comboBox1.SelectedItem.ToString()).Tables[0].DefaultView;
+            }
+            else
+            {
+                Check_dataGridView1.DataSource = manager.selectBook(dateTimePicker1.Value.ToShortDateString(), comboBox1.SelectedItem.ToString()).Tables[0].DefaultView;
+            }
             DataGridViewImageColumn image = new DataGridViewImageColumn();//添加一个自定义Image编辑列
             image.HeaderText = "编辑";
             image.Width = 50;
@@ -122,6 +129,20 @@ namespace Library
         public void refreshSelf()
         {
             CheckBook_Submit_Click(new object(), new EventArgs());
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem.ToString() == "出版时间")
+            {
+                CheckBook_textbox1.Visible = false;
+                dateTimePicker1.Visible = true;
+            }
+            else
+            {
+                CheckBook_textbox1.Visible = true;
+                dateTimePicker1.Visible = false;
+            }
         }
 
     }
