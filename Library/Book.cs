@@ -56,5 +56,12 @@ namespace Library
             get { return publishing_home; }
             set { publishing_home = value; }
         }
+        string isDown;
+
+        public string IsDown
+        {
+            get { return isDown; }
+            set { isDown = value; }
+        }
     }
 }

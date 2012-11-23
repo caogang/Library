@@ -24,6 +24,7 @@ namespace Library
             {
                 Check_dataGridView1.Columns.RemoveAt(Check_dataGridView1.ColumnCount - 1);
                 Check_dataGridView1.Columns.RemoveAt(Check_dataGridView1.ColumnCount - 1);
+                Check_dataGridView1.Columns.RemoveAt(Check_dataGridView1.ColumnCount - 1);
             }
             try
             {
@@ -39,6 +40,18 @@ namespace Library
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
             if (comboBox1.SelectedItem.ToString() != "出版时间")
             {
+                if (comboBox1.SelectedItem.ToString() == "剩余数量")
+                {
+                    try
+                    {
+                        Convert.ToInt16(CheckBook_textbox1.Text);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("输入不合法,请输入数字!");
+                        return;
+                    }
+                }
                 Check_dataGridView1.DataSource = manager.selectBook(CheckBook_textbox1.Text, comboBox1.SelectedItem.ToString()).Tables[0].DefaultView;
             }
             else
@@ -53,68 +66,60 @@ namespace Library
             DataGridViewImageColumn image1 = new DataGridViewImageColumn();//添加一个自定义Image删除列
             image1.HeaderText = "删除";
             image1.DefaultCellStyle = dataGridViewCellStyle1;
-            image1.Width = 50;
+            image1.Width = 60;
             image1.Image = global::Library.Properties.Resources.delete1;
-            /*DataGridViewButtonColumn button = new DataGridViewButtonColumn();
-            button.DefaultCellStyle = dataGridViewCellStyle1;
-            button.HeaderText = "Edit";
-            button.Text = "编辑";
-            button.Width = 50;
-            Check_dataGridView1.Columns.AddRange(button);*/
+            DataGridViewButtonColumn button = new DataGridViewButtonColumn();
+            button.HeaderText = "上/下架";
+            button.Width = 60;
+            button.DefaultCellStyle.NullValue = "上/下架";
             Check_dataGridView1.Columns.AddRange(image);
             Check_dataGridView1.Columns.AddRange(image1);
+            Check_dataGridView1.Columns.AddRange(button);
         }
 
         private void Edit_Submit_Click(object sender, EventArgs e)
         {
-            edit_Submit();
-        }
-
-        private void Check_dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridView dgv = (DataGridView)sender;
-            if (dgv.Columns[e.ColumnIndex].HeaderText == "编辑")
+            init();
+            if (book.Book_id != 0)
             {
-                if (e.RowIndex == -1)
-                {
-                    return;
-                }
                 edit_Submit();
             }
-            else if (dgv.Columns[e.ColumnIndex].HeaderText == "删除")
+        }
+
+        private void Check_dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            init();
+            if (book.IsDown == "是")
             {
-                if (e.RowIndex == -1)
-                {
-                    return;
-                }
-                delete_Submit();
+                Down.Text = "上架";
+                Down.Refresh();
             }
+            else
+            {
+                Down.Text = "下架";
+                Down.Refresh();
+            } 
         }
 
         private void edit_Submit()
         {
-            int row = Check_dataGridView1.CurrentCell.RowIndex;
-            book.Book_id = Convert.ToInt16(Check_dataGridView1.Rows[row].Cells[0].Value);
-            book.Title = Check_dataGridView1.Rows[row].Cells[1].Value.ToString();
-            book.Content = Check_dataGridView1.Rows[row].Cells[2].Value.ToString();
-            book.Num = Convert.ToInt16(Check_dataGridView1.Rows[row].Cells[3].Value);
-            book.Date = (DateTime)Check_dataGridView1.Rows[row].Cells[4].Value;
-            book.Publisher = Check_dataGridView1.Rows[row].Cells[5].Value.ToString();
-            book.Publishing_home = Check_dataGridView1.Rows[row].Cells[6].Value.ToString();
-            EditBook editor = new EditBook(book,this);
+            EditBook editor = new EditBook(book, this);
             editor.Show();
+
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            delete_Submit();
+            init();
+            if (book.Book_id != 0)
+            {
+                delete_Submit();
+            }
         }
 
         private void delete_Submit()
         {
-            int row = Check_dataGridView1.CurrentCell.RowIndex;
-            book.Book_id = Convert.ToInt16(Check_dataGridView1.Rows[row].Cells[0].Value);
-            book.Title = Check_dataGridView1.Rows[row].Cells[1].Value.ToString();
+            init();
             DialogResult r = MessageBox.Show("是否要真的删除", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (r == DialogResult.Yes)
             {
@@ -123,11 +128,11 @@ namespace Library
                 refreshSelf();
             }
             else return;
-            //manager.deleteBook(book);
         }
 
         public void refreshSelf()
         {
+            init();
             CheckBook_Submit_Click(new object(), new EventArgs());
         }
 
@@ -142,6 +147,86 @@ namespace Library
             {
                 CheckBook_textbox1.Visible = true;
                 dateTimePicker1.Visible = false;
+            }
+        }
+
+        private void DownOrUp()
+        {
+            string test;
+            if (book.IsDown == "是")
+            {
+                book.IsDown = "否";
+                test = "上架";
+            }
+            else
+            {
+                book.IsDown = "是";
+                test = "下架";
+            }
+            try
+            {
+                manager.updateBook(book);
+                MessageBox.Show("图书"+ test +"成功");
+            }
+            catch
+            {
+                MessageBox.Show("由于未知原因!图书"+ test +"失败!");
+                return;
+            }
+            refreshSelf();
+        }
+
+        private void Down_Click(object sender, EventArgs e)
+        {
+            init();
+            if (book.Book_id != 0)
+            {
+                DownOrUp();
+            }
+        }
+
+        private void init()
+        {
+                if (Check_dataGridView1.CurrentRow != null)
+                {
+                    //int row = Check_dataGridView1.CurrentRow.Index;
+                    book = new Book();
+                    book.Book_id = Convert.ToInt16(Check_dataGridView1.CurrentRow.Cells[0].Value);
+                    book = manager.getBook(book);
+                }
+                else
+                {
+                    book.Book_id = 0;
+                }
+            
+        }
+
+        private void Check_dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            if (dgv.Columns[e.ColumnIndex].HeaderText == "编辑")
+            {
+                if (e.RowIndex == -1)
+                {
+                    return;
+                }
+                Edit_Submit_Click(sender, e);
+            }
+            else if (dgv.Columns[e.ColumnIndex].HeaderText == "删除")
+            {
+                if (e.RowIndex == -1)
+                {
+                    return;
+                }
+                Delete_Click(sender, e);
+            }
+            else if (dgv.Columns[e.ColumnIndex].HeaderText == "上/下架")
+            {
+                if (e.RowIndex == -1)
+                {
+                    return;
+                }
+                Down_Click(sender, e);
             }
         }
 

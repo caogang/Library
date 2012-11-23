@@ -79,14 +79,31 @@ namespace Library
             try
             {
                 conn.Open();
-                string sql = @"UPDATE [Library].[dbo].[Book]
+                string sql;
+                if (b.IsDown != "是")
+                {
+                    sql = @"UPDATE [Library].[dbo].[Book]
    SET [title] = '" + b.Title + @"'
       ,[content] = '" + b.Content + @"'
       ,[num] = '" + b.Num + @"'
       ,[date] = '" + b.Date + @"'
       ,[publisher] = '" + b.Publisher + @"'
       ,[publishing_home] = '" + b.Publishing_home + @"'
+      ,[isDown] = '否'
  WHERE book_id = " + b.Book_id;
+                }
+                else
+                {
+                    sql = @"UPDATE [Library].[dbo].[Book]
+   SET [title] = '" + b.Title + @"'
+      ,[content] = '" + b.Content + @"'
+      ,[num] = '" + b.Num + @"'
+      ,[date] = '" + b.Date + @"'
+      ,[publisher] = '" + b.Publisher + @"'
+      ,[publishing_home] = '" + b.Publishing_home + @"'
+      ,[isDown] = '" + b.IsDown + @"'
+ WHERE book_id = " + b.Book_id;
+                }
                 sqlcom = new SqlCommand(sql, conn);
                 sqlcom.ExecuteScalar();
                 return 1;
@@ -110,6 +127,7 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
+      ,[isDown]
   FROM [Library].[dbo].[Book]";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
@@ -177,7 +195,8 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
-  FROM [Library].[dbo].[Book] where [book_id]='" + b.Book_id + "' OR [title]='" + b.Title + "'";
+      ,[isDown]
+  FROM [Library].[dbo].[Book] where [book_id]='" + b.Book_id + "'OR [title]='" + b.Title + "'";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
             DataSet ds = new DataSet();
@@ -189,6 +208,7 @@ namespace Library
             b.Date = (DateTime)ds.Tables[0].Rows[0][4];
             b.Publisher = ds.Tables[0].Rows[0][5].ToString();
             b.Publishing_home = ds.Tables[0].Rows[0][6].ToString();
+            b.IsDown = ds.Tables[0].Rows[0][7].ToString();
             return b;
         }
 
@@ -201,6 +221,7 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
+      ,[isDown]
   FROM [Library].[dbo].[Book]";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
@@ -218,6 +239,7 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
+      ,[isDown]
   FROM [Library].[dbo].[Book] where [title] Like '%" + title+ "%' ";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
@@ -235,6 +257,7 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
+      ,[isDown]
   FROM [Library].[dbo].[Book] where [num] = " + num;
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
@@ -252,6 +275,7 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
+      ,[isDown]
   FROM [Library].[dbo].[Book] where [publishing_home] Like '%" + text + "%'";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
@@ -269,6 +293,7 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
+      ,[isDown]
   FROM [Library].[dbo].[Book] where [publisher] Like '%" + text + "%'";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);
@@ -286,6 +311,7 @@ namespace Library
       ,[date]
       ,[publisher]
       ,[publishing_home]
+      ,[isDown]
   FROM [Library].[dbo].[Book] where [date] between '" + date + "' and '"+date.AddDays(1)+"'";
             sqlcom = new SqlCommand(sql, conn);
             sda = new SqlDataAdapter(sqlcom);

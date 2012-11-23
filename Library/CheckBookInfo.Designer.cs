@@ -38,6 +38,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.Down = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Check_dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             this.Check_dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Check_dataGridView1.Size = new System.Drawing.Size(552, 185);
             this.Check_dataGridView1.TabIndex = 7;
+            this.Check_dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Check_dataGridView1_CellClick);
             this.Check_dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Check_dataGridView1_CellContentClick);
             // 
             // CheckBook_Submit
@@ -107,7 +109,7 @@
             // Delete
             // 
             this.Delete.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Delete.Location = new System.Drawing.Point(583, 331);
+            this.Delete.Location = new System.Drawing.Point(341, 331);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(89, 36);
             this.Delete.TabIndex = 9;
@@ -151,11 +153,23 @@
             this.dateTimePicker1.TabIndex = 12;
             this.dateTimePicker1.Visible = false;
             // 
+            // Down
+            // 
+            this.Down.Font = new System.Drawing.Font("楷体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Down.Location = new System.Drawing.Point(570, 331);
+            this.Down.Name = "Down";
+            this.Down.Size = new System.Drawing.Size(89, 36);
+            this.Down.TabIndex = 13;
+            this.Down.Text = "下架";
+            this.Down.UseVisualStyleBackColor = true;
+            this.Down.Click += new System.EventHandler(this.Down_Click);
+            // 
             // CheckBookInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 392);
+            this.Controls.Add(this.Down);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
@@ -185,5 +199,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button Down;
     }
 }
